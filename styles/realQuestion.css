@@ -227,5 +227,5 @@ button,.close{
 }
 
 .radio:checked + .real-opts{
-  background-color: red;
+  background-color: rgb(205, 25, 205);
 }
