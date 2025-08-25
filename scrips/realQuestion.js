@@ -2,16 +2,15 @@
   import { options } from "./option.js";
   const eachQuestion = document.querySelector('.subject')
   let engQuestHTML = ''
-  generalQuest.forEach(quest => {
-
-    const questId = quest.id
+  generalQuest.forEach((quest) => {
+    const questId = quest.id;
     let matchingQuest;
 
     options.forEach((option) => {
       if (option.id === questId) {
-        matchingQuest = option
+        matchingQuest = option;
       }
-    })
+    });
     engQuestHTML += `
     <div class="quest-cont">
     <div class="quest-num">Question ${quest.questNum}</div>
@@ -19,66 +18,81 @@
       ${quest.question}
     </div>
     <div class="opts">
-      <div class="to-check to-check-${matchingQuest.id}"
+      <label for="radio-${matchingQuest.id}-A"   class="to-check to-check-${matchingQuest.id}"
         data-checked-id="${matchingQuest.id}" data-value="A"
       >
-        <input type="radio" class="radio radio-${matchingQuest.id}"
+        <input type="radio" id="radio-${matchingQuest.id}-A" class="radio radio-${matchingQuest.id}"
          name="radio-${matchingQuest.id}" value="A">
-        <label class="real-opts" for="radio-${matchingQuest.id}" data-check-id="radio-${matchingQuest.id}">
+        <div class="real-opts"  data-check-id="radio-${matchingQuest.id}-A">
          ${matchingQuest.optionA}
-        </label>
-      </div>
-      <div class="to-check to-check-${matchingQuest.id}"
+        </div>
+      </label>
+      <label for="radio-${matchingQuest.id}-B"   class="to-check to-check-${matchingQuest.id}"
         data-checked-id="${matchingQuest.id}" data-value="B"
       >
-        <input type="radio" class="radio radio-${matchingQuest.id}"
+        <input type="radio" id="radio-${matchingQuest.id}-B" class="radio radio-${matchingQuest.id}"
          name="radio-${matchingQuest.id}" value="B">
-        <label class="real-opts" for="radio-${matchingQuest.id}" data-check-id="radio-${matchingQuest.id}">
+        <div class="real-opts"  data-check-id="radio-${matchingQuest.id}-B">
          ${matchingQuest.optionB}
-        </label>
-      </div>
-      <div class="to-check to-check-${matchingQuest.id}"
+        </div>
+      </label>
+      <label for="radio-${matchingQuest.id}-C"   class="to-check to-check-${matchingQuest.id}"
        data-checked-id="${matchingQuest.id}" data-value="C"
       >
-        <input type="radio" class="radio radio-${matchingQuest.id}"
+        <input type="radio" id="radio-${matchingQuest.id}-C" class="radio radio-${matchingQuest.id}"
          name="radio-${matchingQuest.id}" value="C">
-        <label class="real-opts" for="radio-${matchingQuest.id}" data-check-id="radio-${matchingQuest.id}">
+        <div class="real-opts"  data-check-id="radio-${matchingQuest.id}-C">
          ${matchingQuest.optionC}
-        </label>
-      </div>
-      <div class="to-check to-check-${matchingQuest.id}"
+        </div>
+      </label>
+      <label for="radio-${matchingQuest.id}-D"   class="to-check to-check-${matchingQuest.id}"
         data-checked-id="${matchingQuest.id}" data-value="D"
         >
-        <input type="radio" class="radio radio-${matchingQuest.id}" 
+        <input type="radio" id="radio-${matchingQuest.id}-D" class="radio radio-${matchingQuest.id}" 
          name="radio-${matchingQuest.id}" value="D">
-        <label class="real-opts" for="radio-${matchingQuest.id}" data-check-id="radio-${matchingQuest.id}">
+        <div class="real-opts" data-check-id="radio-${matchingQuest.id}-D">
          ${matchingQuest.optionD}
-        </label>
-      </div>
+        </div>
+      </label>
     </div>
     <div class="subj-del">
       <div class="eng-small">(english language - 2021)</div>
       <div class="delete-icon">Delete</div>
     </div>
   </div>
-    ` 
-  })
+    `;
+  });
 
-  document.addEventListener('click', (e) => {
-    if(
-    e.target.classList.contains('to-check') || 
-    e.target.closest('.to-check')) {
-      const wrapper = e.target.closest('.to-check');
-      const value = wrapper.dataset.value;
-      const id = wrapper.dataset.id;
-      //find the matching radio and check it
+  document.addEventListener("change", (e) => {
+    console.log(e);
+    if (e.target && e.target.classList.contains("radio")) {
+      const selectedRadio = e.target;
 
-      const radio = 
-        wrapper.querySelector(`input[type='radio']
-        [value='${value}']`);
+      const selectedValue = selectedRadio.value;
+      console.log(selectedValue);
+      const nameAttr = selectedRadio.name;
+      const idPart = nameAttr.replace("radio-", "");
+      console.log(idPart);
 
-      if (radio) radio.checked = true;
+      const allRadios = document.getElementsByName(nameAttr);
+      console.log(allRadios);
+      allRadios.forEach((radio) => {
+        if (radio !== selectedRadio) {
+          radio.checked = false;
+        }
+      });
+
+    
+      const allLabels = document.querySelectorAll(`.to-check-${idPart}`);
+      allLabels.forEach((label) => {
+        label.classList.remove("checked");
+        const input = label.querySelector("input");
+
+        if (input && input.value === selectedValue) {
+          label.classList.add("checked");
+        }
+      });
     }
-  })
+  });
 
   eachQuestion.innerHTML = engQuestHTML

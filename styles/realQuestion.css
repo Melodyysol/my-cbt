@@ -1,4 +1,4 @@
-body{
+body {
   display: flex;
   margin: 0 0 38em 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -7,12 +7,12 @@ body{
   /*align-items: center;*/
   background-color: whitesmoke;
 }
-.container3{
+.container3 {
   position: relative;
   margin-top: 10em;
 }
 
-.menu{
+.menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,11 +24,11 @@ body{
   z-index: 20;
   width: 435px;
 }
-.top-section{
+.top-section {
   display: flex;
   position: relative;
 }
-.arrow{
+.arrow {
   width: 30px;
   height: 30px;
   cursor: pointer;
@@ -36,12 +36,12 @@ body{
   align-items: center;
   justify-content: center;
 }
-.arrow:hover{
+.arrow:hover {
   border-radius: 50%;
-  background-color: rgb(128, 128, 128, .2);
+  background-color: rgb(128, 128, 128, 0.2);
 }
-.arrow::after{
-  content: '';
+.arrow::after {
+  content: "";
   width: 10px;
   height: 2px;
   background-color: black;
@@ -49,8 +49,8 @@ body{
   transform: rotate(-45deg);
   top: 10px;
 }
-.arrow::before{
-  content: '';
+.arrow::before {
+  content: "";
   position: absolute;
   width: 10px;
   height: 2px;
@@ -58,19 +58,19 @@ body{
   transform: rotate(45deg);
   top: 16px;
 }
-.examine{
+.examine {
   font-size: 1.5em;
   font-weight: bold;
   color: rgb(79, 69, 69);
 }
-.menu1{
+.menu1 {
   display: flex;
   align-items: center;
   justify-content: right;
   column-gap: 20px;
 }
 
-.square{
+.square {
   border: 2px solid rgb(90, 86, 86);
   width: 20px;
   height: 23px;
@@ -80,13 +80,13 @@ body{
   justify-content: space-evenly;
   flex-direction: column;
 }
-.rect{
-  border: 2px solid  rgb(90, 86, 86);
+.rect {
+  border: 2px solid rgb(90, 86, 86);
   width: 10px;
   height: 5px;
   border-radius: 10px;
 }
-.points{
+.points {
   display: grid;
   grid-template-columns: repeat(3, auto);
   align-items: center;
@@ -94,31 +94,31 @@ body{
   column-gap: 2px;
   row-gap: 2px;
 }
-.point{
+.point {
   border: 1px solid rgb(90, 86, 86);
   border-radius: 50%;
   width: 1px;
   height: 1px;
 }
 
-.lines{
+.lines {
   display: flex;
   flex-direction: column;
   row-gap: 3px;
   align-items: flex-end;
 }
 .lines div:first-child,
-.lines div:nth-child(3){
+.lines div:nth-child(3) {
   border: 1px solid rgb(90, 86, 86);
   width: 20px;
 }
 .lines div:last-child,
-.lines div:nth-child(2){
+.lines div:nth-child(2) {
   border: 1px solid rgb(90, 86, 86);
   width: 10px;
 }
 
-.menu2{
+.menu2 {
   position: fixed;
   background-color: rgb(244, 242, 242);
   top: 0;
@@ -126,21 +126,21 @@ body{
   padding: 10px;
   padding-top: 4.8rem;
   z-index: 10;
-  border-bottom:1px solid rgb(212, 209, 209) ;
+  border-bottom: 1px solid rgb(212, 209, 209);
 }
-.menu2-div{
+.menu2-div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.submit-div{
+.submit-div {
   background-color: rgb(205, 25, 205);
   color: white;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
-.eng{
+.eng {
   border-bottom: 3px solid rgb(205, 25, 205);
   color: rgb(205, 25, 205);
   font-weight: bold;
@@ -149,39 +149,39 @@ body{
   cursor: pointer;
 }
 
-
-.subject{
+.subject {
   display: grid;
   align-items: center;
   justify-content: center;
   row-gap: 30px;
   padding: 20px;
 }
-.quest-cont{
+.quest-cont {
   width: 24em;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
 }
-.quest-num{
+.quest-num {
   font-weight: bold;
   color: rgb(93, 85, 85);
   margin-bottom: 10px;
 }
-.opts div,.subj-del{
+.opts div,
+.subj-del {
   font-size: 14px;
   color: rgb(142, 140, 138);
   font-weight: lighter;
-  font-family:sans-serif;
+  font-family: sans-serif;
 }
-.opts{
+.opts {
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
   margin-bottom: 20px;
 }
-.to-check{
+.to-check {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -189,31 +189,33 @@ body{
   padding: 10px;
   border-radius: 5px;
 }
-.real-opts:hover{
-  opacity: .6;
+.real-opts:hover {
+  opacity: 0.6;
 }
-.to-check:active{
+.to-check:active {
   background-color: rgb(205, 25, 205);
   color: white;
 }
-.radio{
+.radio {
   background-color: black;
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
-.subj-del,.solution{
+.subj-del,
+.solution {
   display: flex;
   justify-content: space-between;
 }
-.eng-small{
+.eng-small {
   font-size: 12px;
-  font-family:sans-serif;
+  font-family: sans-serif;
 }
-.delete-icon{
+.delete-icon {
   cursor: pointer;
 }
-button,.close{
+button,
+.close {
   background-color: rgb(205, 25, 205);
   border: 1px solid rgb(205, 25, 205);
   cursor: pointer;
@@ -222,10 +224,16 @@ button,.close{
   border-radius: 5px;
   margin-top: 30px;
 }
-.proceed.show{
+.proceed.show {
   background-color: rgb(205, 25, 205);
 }
 
-.radio:checked + .real-opts{
+.radio:checked + .real-opts {
+  color: white;
+}
+
+.checked {
   background-color: rgb(205, 25, 205);
 }
+
+
