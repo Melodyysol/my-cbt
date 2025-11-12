@@ -712,7 +712,7 @@
       };
     });
 
-    export const generalQuestion = generalQuest.map((q) => {
+    /*export const generalQuestion = generalQuest.map((q) => {
       const options = parseOptions(q.options);
       const ansIdx = ansToIndex(q.ans);
       return {
@@ -721,4 +721,4 @@
         ans: ansIdx >= 0 && ansIdx < options.length ? options[ansIdx] : "",
         correction: (q.correction || "").replace(/\s+/g, " ").trim(),
       };
-    });
+    });*/
