@@ -1,13 +1,3 @@
-  body{
-    display: flex;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
-    justify-content: center;
-    /*align-items: center;*/
-    background-color: whitesmoke;
-    color: rgb(79, 78, 78);
-  }
   .container3{
     position: relative;
     margin-top: 20px;
@@ -27,27 +17,6 @@
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-  }
-  .arrow{
-    margin-bottom: 30px;
-    cursor: pointer;
-  }
-  .arrow::after{
-    content: '';
-    width: 15px;
-    height: 2px;
-    background-color: black;
-    position: absolute;
-    transform: rotate(45deg);
-    top: 30px;
-  }
-  .arrow::before{
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 2px;
-    background-color: black;
-    transform: rotate(-45deg);
   }
   .examine{
     font-size: 2em;
@@ -176,7 +145,7 @@
   }
   .message{
     background-color: rgba(220, 220, 220, 0.6);
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -187,6 +156,13 @@
     position: fixed;
     z-index: 101;
     padding: 10px;
+  }
+  .is-editing{
+    display: flex;
+  }
+
+  .is-editing-quest .the-afric{
+    display: initial;
   }
   .back-mess{
     background-color: white;
@@ -204,17 +180,13 @@
   .close{
     text-align: center;
   }
-  .message.show{
-    display: none;
-  }
+ 
   .quest-cont.show{
     display: none;
   }
   .the-afric{
-    margin-top: 10px;
-  }
-  .the-afric.show{
-    display:none;
+    color: red;
+    display: none;
   }
   .prev-next{
     display: flex;

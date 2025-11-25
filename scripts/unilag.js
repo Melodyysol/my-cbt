@@ -13,7 +13,7 @@
           <div class="hundred">100 Level</div>
           <div class="semester">FIRST SEMESTER</div>
         </div>
-        <img class="bag" src="/images/backpack.jpg" alt="Atere">
+        <img class="bag" src="/images/neuracoin.png" alt="Atere">
       </div>
     </marquee>
     <div class="exercise">

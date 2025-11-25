@@ -1,0 +1,214 @@
+.container3{
+  position: relative;
+  margin-top: 20px;
+}
+.top-container{
+  position: fixed;
+  border-bottom: 1px solid rgb(234, 230, 230);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 100;
+  padding: 20px;
+  top: 0;
+  background-color: whitesmoke;
+  width: 410px;
+}
+.top-section{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.examine{
+  font-size: 2em;
+  font-weight: bold;
+  color: rgb(79, 69, 69);
+}
+.access{
+  font-size: 20px;
+  color: rgb(79, 69, 69);
+}
+.select-sub{
+  display: flex;
+  flex-direction: column;
+  border-color: grey;
+  margin-top: 20px;
+}
+select{
+  margin-top: 10px;
+  padding: 10px;
+  color: rgb(79, 78, 78);
+  border-radius: 5px;
+  border: 1px solid rgb(191, 185, 185);
+  background-color: transparent;
+}
+.bookmark-info{
+  text-align: center;
+  line-height: 5px;
+  color: rgb(79, 69, 69);
+}
+.box-cont{
+  position: relative;
+  text-align: center;
+  margin-top: 20em;
+}
+.box{
+  width: 146px;
+  height: 200px;
+  border: 3px solid black;
+  transform: rotate(135deg);
+  background-color: orange;
+  mix-blend-mode:inherit;
+  border-bottom: none;
+  border-top: none;
+  margin-bottom: 50px;
+  margin-left: 100px;
+}
+.box::after{
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(255, 165, 0, .5);
+  /*transform: matrix(2,1,1,1,1,1);*/
+  transform: rotate(45deg);
+  left: 1.3em;
+  top: 1.3em;
+  border: 3px solid rgb(0, 0, 0);
+}
+.box::before{
+  content: '';
+  background-color: orange;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 1.2em;
+  top: 4.7em;
+  transform: rotate(45deg);
+  border: 3px solid black;
+}
+.box-cont.show{
+  display: none;
+}
+.all-quest-cont{
+  margin-top: 15em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+.quest-container{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  row-gap: 30px;
+  padding: 20px;
+}
+.quest-cont{
+  width: 24em;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.just{
+  margin-top: 10px;
+  background-color: red;
+}
+.quest-num{
+  font-weight: bold;
+  color: rgb(93, 85, 85);
+  margin-bottom: 10px;
+}
+.instruction,ol,.subj-del{
+  font-size: 14px;
+  color: rgb(142, 140, 138);
+  font-weight: lighter;
+  font-family:sans-serif;
+}
+.subj-del,.solution{
+  display: flex;
+  justify-content: space-between;
+}
+.eng{
+  font-size: 12px;
+  font-family:sans-serif;
+}
+.delete-icon{
+  cursor: pointer;
+}
+button,.close{
+  background-color: rgb(205, 25, 205);
+  border: 1px solid rgb(205, 25, 205);
+  cursor: pointer;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+.message{
+  background-color: rgba(220, 220, 220, 0.6);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  z-index: 101;
+  padding: 10px;
+}
+.is-editing{
+  display: flex;
+}
+
+.is-editing-quest .the-afric{
+  display: initial;
+}
+.back-mess{
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+.corr-ans{
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.ans-value{
+  font-size: 15px;
+  line-height: 20px;
+}
+.close{
+  text-align: center;
+}
+
+.the-afric{
+  color: red;
+  display: none;
+}
+.prev-next{
+  display: flex;
+  background-color: whitesmoke;
+  position: fixed;
+  bottom: 0px;
+  height: 40px;
+  border-top: 1px solid rgb(236, 234, 234);
+  width: 380px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.prev-next-orig{
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+}
+.prev,.next{
+    background-color: rgb(205, 25, 205);
+    border: 1px solid rgb(205, 25, 205);
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 25px;
+}

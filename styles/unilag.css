@@ -75,7 +75,8 @@
     color: rgb(63, 62, 62);
   }
   .bag{
-    width: 8em;
+    border-radius: 50%;
+    width: 10em;
     height: 10em;
     text-align: center;
   }
