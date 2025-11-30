@@ -399,7 +399,7 @@
             ${matchingOption.optionD}
             </div>
           </label>
-      `
+        `
       })
       return optionHTML;
     }

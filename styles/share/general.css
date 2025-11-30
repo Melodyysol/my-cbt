@@ -68,12 +68,15 @@ body{
   padding: 10px;
   border-radius: 5px;
 }
-.real-opts:hover {
-  opacity: 0.6;
-}
 .radio {
   background-color: black;
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+.radio:checked + .real-opts {
+  color: white;
+}
+.checked{
+  background-color: #cd19cd;
 }

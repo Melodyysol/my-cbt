@@ -11,7 +11,8 @@
       correction: `
        The African extended family system gives security 
        to its members`,
-    },
+      selectedQuestId: '1'
+      },
     {
       id: "1000-abc-0002",
       questNum: ``,
@@ -22,7 +23,8 @@
         "Gaily" is the correct adverb meaning"in a bright 
         or chearful manner. Example: She was always gaily
         dressed in colorful outfits."`,
-    },
+      selectedQuestId: '1'
+      },
     {
       id: "1000-abc-0003",
       questNum: ``,
@@ -30,6 +32,7 @@
        capitalized word: We visited the most EXOTIC place in Abuja.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-0004",
@@ -41,7 +44,8 @@
       correction: `
         This type of sentence asks a question and ends with a
         question mark '?'`,
-    },
+      selectedQuestId: '1'
+      },
     {
       id: "1000-abc-0005",
       questNum: ``,
@@ -50,6 +54,7 @@
         usage. God deeds are <i>eternal</i>.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-0006",
@@ -59,6 +64,7 @@
         of the sentence: The girl proceeded to paint the town RED`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-0007",
@@ -67,6 +73,7 @@
        as the underlined in b<u>u</u>yer`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-0008",
@@ -75,6 +82,7 @@
        cards to his chest`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-0009",
@@ -84,6 +92,7 @@
         defendant was acquitted in the court today.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00010",
@@ -93,6 +102,7 @@
         UNINTELLIGENT.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00011",
@@ -100,6 +110,7 @@
       question: `She called the manager ......... the contract agreement`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00012",
@@ -108,6 +119,7 @@
        underlined in p<u>a</u>in`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00013",
@@ -115,6 +127,7 @@
       question: `My friend was proved innocent ...... the charges.`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00014",
@@ -124,6 +137,7 @@
         with the pastor <u>before the service commences</u>`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00015",
@@ -133,6 +147,7 @@
         he was relatively UNKNOWN.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00016",
@@ -140,6 +155,7 @@
       question: `Jide and Olu ....... my house today.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
     {
       id: "1000-abc-00017",
@@ -148,6 +164,7 @@
         as: Burn.`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '1'
     },
   
   
@@ -165,7 +182,8 @@
         So, X:Y:Z = 2:5:20 => Total ratio = 2+5+20 = 27 
         Y's share = (Y's ratio / Total ratio) * Total Amount 
         Y's share = (5 / 27) * 540 = 100 (option B)</b>`,
-    },
+      selectedQuestId: '2'
+      },
     {
       id: "1002-abc-0002",
       questNum: ``,
@@ -174,6 +192,7 @@
         always come together?`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0003",
@@ -183,6 +202,7 @@
         and three women be choosen?`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0004",
@@ -190,6 +210,7 @@
       question: "The product gradients of two perpendicular lines is always",
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0005",
@@ -199,6 +220,7 @@
         the incumbent expect out of the 400,000 voters in the state`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0006",
@@ -206,6 +228,7 @@
       question: `300% of 20 = `,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0007",
@@ -214,6 +237,7 @@
         be made out of a total of seven men and three women.`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0008",
@@ -222,6 +246,7 @@
         of the circle. What is the radius of the circle?`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-0009",
@@ -229,6 +254,7 @@
       question: `Increase 5 by 44%`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-00010",
@@ -237,6 +263,7 @@
        mean of a, b, c, d is 5. Find the value of d`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-00011",
@@ -245,6 +272,7 @@
         is the number?`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-00012",
@@ -253,6 +281,7 @@
         by 20% what is the new class size?`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-00013",
@@ -260,6 +289,7 @@
       question: `To two decimal place evaluate 4.5 divided by 20.5`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     {
       id: "1002-abc-00015",
@@ -268,6 +298,7 @@
       angle is 144<sup>0</sup>. Find n.`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '2'
     },
     
     
@@ -282,7 +313,8 @@
       correction: `
         Kingsley Moghalu - He was a Deputy Governor of Centre
         Bank of Nigeria but never serve as the Governor`,
-    },
+      selectedQuestId: '3'
+      },
     {
       id: "1001-abc-0002",
       questNum: ``,
@@ -292,7 +324,8 @@
       correction: `
         According to the information available the South-South  
         Geo-Political Zone in Nigeria is made up of Six (6) states`,
-    },
+      selectedQuestId: '3'
+      },
     {
       id: "1001-abc-0003",
       questNum: ``,
@@ -300,6 +333,7 @@
         than the others. Which is it?`,
       ans: "D",
       correction: ``,
+      selectedQuestId: '3'
     },
     {
       id: "1001-abc-0004",
@@ -307,6 +341,7 @@
       question: `The Berlin Conference of 1884 to 1885 resulted to the`,
       ans: "C",
       correction: ``,
+      selectedQuestId: '3'
     },
     {
       id: "1001-abc-0005",
@@ -315,6 +350,7 @@
       major parties in the United State is?`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '3'
     },
     {
       id: "1001-abc-0006",
@@ -322,6 +358,7 @@
       question: `The Governor of Imo State is?`,
       ans: "B",
       correction: ``,
+      selectedQuestId: '3'
     },
     {
       id: "1001-abc-0007",
@@ -329,6 +366,7 @@
       question: `Multilateral refers to relationship among`,
       ans: "A",
       correction: ``,
+      selectedQuestId: '3'
     },
     {
       id: "1001-abc-0008",
@@ -337,13 +375,15 @@
       center Geo-Political Zone in Nigeria`,
       ans: "A",
       correction: ``,
-  },
+      selectedQuestId: '3'
+    },
   {
     id: "1001-abc-0009",
     questNum: ``,
     question: `The capital of Uganda is?`,
     ans: "A",
     correction: ``,
+    selectedQuestId: '3'
   }]
 
   questions.forEach((quest) => {
