@@ -17,19 +17,19 @@
 .end-message{
   color: green;
   font-weight: bolder;
-  font-size: 3em;
+  font-size: 1.5em;
   text-transform: uppercase;
 }
 .comment{
   color: rgb(218, 18, 18);
-  font-size: 2em;
+  font-size: 1.2em;
   font-family: \;
 }
 
 .keep-it-up{
   font-weight: lighter;
   color: blue;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .view-take{
