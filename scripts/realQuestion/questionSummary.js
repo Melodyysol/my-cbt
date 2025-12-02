@@ -168,7 +168,7 @@ export function renderQuestionHTML() {
       window.location.href = 'exam.html'
     })
     document.querySelector('.js-close-back').addEventListener('click', () => {
-      window.location.href = 'unilag.html'
+      window.location.href = 'index.html'
     })
   }
 

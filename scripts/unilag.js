@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="footer">
-      <a class="home-link" href="unilag.html">
+      <a class="home-link" href="index.html">
         <!--The removal of 'page' gives color-->
         <div class="home page">
           <div class="home-icon page"></div>
