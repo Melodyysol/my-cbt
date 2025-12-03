@@ -74,6 +74,10 @@ body{
   height: 20px;
   cursor: pointer;
 }
+.opts div{
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
 .radio:checked + .real-opts {
   color: white;
 }
