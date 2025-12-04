@@ -46,11 +46,21 @@ document.querySelectorAll('.js-container2').forEach(quest => {
     const eachInput = document.querySelector(`.js-input-${questionId}`);
     if(eachInput.checked === true && questionId === '1') {
       questionsId1 = questionId
+    }else if(eachInput.checked === false && questionId === '1') {
+      questionsId1 = undefined
     }else if(eachInput.checked === true && questionId === '2') {
       questionsId2 = questionId
+    }else if(eachInput.checked === false && questionId === '2') {
+      questionsId2 = undefined
     }else if(eachInput.checked === true && questionId === '3') {
       questionsId3 = questionId
+    }else if(eachInput.checked === false && questionId === '3') {
+      questionsId3 = undefined
     }
+
+    console.log(questionsId1)
+    console.log(questionsId2)
+    console.log(questionsId3)
   })
 })
 

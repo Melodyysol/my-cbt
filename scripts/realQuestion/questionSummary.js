@@ -180,6 +180,10 @@ export function renderQuestionHTML() {
     document.querySelector('.js-close-back').addEventListener('click', () => {
       window.location.href = 'index.html'
     })
+
+    document.querySelector('.js-view').addEventListener('click', () => {
+      viewCorrection()
+    })
   }
 
   document.addEventListener("change", (e) => {
@@ -216,5 +220,64 @@ export function renderQuestionHTML() {
 
   function saveToStorage() {
     return localStorage.setItem('track', JSON.stringify(track))
+  }
+
+  function viewCorrection() {
+    let correctionHTML = ''
+    let html = ''
+    const url = new URL(window.location.href)
+    const questionId1 = url.searchParams.get('questionId1')
+    const questionId2 = url.searchParams.get('questionId2')
+    const questionId3 = url.searchParams.get('questionId3')
+    filterQuestions.forEach(quest => {
+      const questId = quest.id;
+      const matchingOption = matchOption(questId)
+      let matchingQuestionOption;
+      questionType.forEach(question => {
+        if(matchingOption.questionTypeId === question.questionTypeId){
+          matchingQuestionOption = question;
+        }
+      })
+
+      const eng = quest.selectedQuestId === '1' ? 'English Lang.' : 'English Lang.'
+      const math = quest.selectedQuestId === '2' ? 'Mathematics' : ''
+      const gen = quest.selectedQuestId === '3' ? 'Gen. Paper' : ''
+      
+
+
+      document.querySelector('.js-examine-1').innerHTML = matchingQuestionOption.name
+      html= `
+        <div class="menu2-div">
+          <div>
+            <div>Question ${quest.questNum}</div>
+            <div>Time left: <span><span class="js-minute">20</span> : <span class="js-seconds">00</span></span></div>
+          </div>
+          <div class="submit-div js-submit">Submit</div>
+        </div>
+        <div class="question-name">
+          <div class="eng">${eng}</div>
+          <div class="eng js-math-${quest.id}">${math}</div>
+          <div class="eng">${gen}</div>
+        </div>
+      `
+
+      correctionHTML += `
+      <div class="quest-cont js-quest-cont-${quest.id}">
+        <div class="quest-num">Question ${quest.questNum}</div>
+        <div class="instruction">
+          ${quest.question}
+        </div>
+        <div class="opts">
+        ${mainOption(matchingOption)}
+        </div>
+        <div class="subj-del">
+          <div class="eng-small">(${matchingQuestionOption.name} - 2021)</div>
+        </div>
+      </div>
+      `;
+    })
+    document.querySelector('.end-quiz-container').style.display = 'none'
+    document.querySelector('.js-submit-subject').innerHTML = html;
+    eachQuestion.innerHTML = correctionHTML 
   }
 }

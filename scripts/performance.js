@@ -1,6 +1,5 @@
 import { track } from "./realQuestion/questionSummary.js";
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-
 let trackHTML = '';
 track.forEach(tracks => {
   trackHTML = `
@@ -86,5 +85,3 @@ track.forEach(tracks => {
 });
 
 document.querySelector('.js-track-container').innerHTML = trackHTML
-
-console.log(track)

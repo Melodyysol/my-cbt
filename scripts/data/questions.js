@@ -1,6 +1,5 @@
     
     import { matchSubject, questionType } from "./questionType.js";
-
     let questNum = 0;
 
     export let engQuest = [

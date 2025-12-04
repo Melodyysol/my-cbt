@@ -20,4 +20,3 @@ setInterval(() => {
     time = 59
   }
 }, 1000)
-
