@@ -2,11 +2,14 @@ import { generalQuest, mainOption, removeQuestion } from "../data/questions.js";
 import {  matchOption } from "../data/option.js";
 import { questionType } from "../data/questionType.js";
 import { questions } from "../data/infomation.js";
+export let track = JSON.parse(localStorage.getItem('track')) || [];
 
 
 export function renderQuestionHTML() {
   const eachQuestion = document.querySelector('.subject')
   let filterQuestions = questions;
+  let time = 60;
+  let timeMinute = 19
 
   function mainQuestion() {
     let question = [];
@@ -90,8 +93,6 @@ export function renderQuestionHTML() {
   })
   function Time() {
     // eachQuestion.innerHTML = '';
-    let time = 60;
-    let timeMinute = 19
     timeInterval = setInterval(() => {
       if(time <= 60 && time > 0) {
         time--
@@ -161,6 +162,15 @@ export function renderQuestionHTML() {
         <button class="view-take-close js-close-back">Close and Back to Menu</button>
       </div>
     `
+
+    track.push({
+      id: '1',
+      avgScores: totalAns,
+      timeSecs: time,
+      timeMins: timeMinute,
+      percentScores: percentScore
+    })
+    saveToStorage()
     document.querySelector('.end-quiz-container').style.display = 'flex'
     document.querySelector('.end-quiz-container').innerHTML = endQuizHTML;
 
@@ -203,4 +213,8 @@ export function renderQuestionHTML() {
       });
     }
   });
+
+  function saveToStorage() {
+    return localStorage.setItem('track', JSON.stringify(track))
+  }
 }
