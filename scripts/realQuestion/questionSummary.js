@@ -1,4 +1,5 @@
 import { generalQuest, mainOption, removeQuestion } from "../data/questions.js";
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 import {  matchOption } from "../data/option.js";
 import { questionType } from "../data/questionType.js";
 import { questions } from "../data/infomation.js";
@@ -206,6 +207,14 @@ export function renderQuestionHTML() {
     let matching;
     let totalAns = 0;
     let attempted = 0;
+    // const date = new Date()
+    // const dateString = `${date.getDate()}` + '-' + `${date.getMonth()}` + '-' + `${date.getFullYear()}`
+    // const dateTime = `${date.getHours()}` + '-' + `${date.getMinutes()}`
+
+    const today = dayjs()
+    const dateString = today.format('d MMMM, YYYY')
+    let dateTime = today.format('hh:mmA')
+    console.log(dateTime)
     varyQuestions.forEach(quest => {
       totalQuest = quest.questNum
       const questId = quest.id
@@ -262,7 +271,9 @@ export function renderQuestionHTML() {
       timeSecs: time,
       timeMins: timeMinute,
       percentScores: percentScore,
-      selected: select
+      selected: select,
+      dateString: dateString,
+      dateTime: dateTime
     })
     saveToStorage()
     document.querySelector('.end-quiz-container').style.display = 'flex'

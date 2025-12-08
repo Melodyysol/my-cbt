@@ -365,9 +365,21 @@
 
     export function mainOption(matchingOption) {
       let optionHTML= ''
+      // let shuffleOption = [];
+
+
+
+
       questionType.forEach(quest => {
         let questionId = quest.questionTypeId;
         const engMathGen = matchSubject(questionId)
+        // for (let i = questionType.length - 1; i > 0; i--) {
+        //   let randomNumber = Math.floor(Math.random() * (i + 1))
+        //  // [matchingOption[i], matchingOption[randomNumber]] = [matchingOption[randomNumber], matchingOption[i]]
+        //   console.log(matchingOption)
+        //   // shuffleOption.push(matchingOption)
+        //   // console.log(shuffleOption)
+        // }
   
         optionHTML = `
           <label for="radio-${matchingOption.optionId}-A"   class="to-check to-check-${matchingOption.optionId}">

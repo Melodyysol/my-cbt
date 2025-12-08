@@ -1,5 +1,4 @@
 import { track } from "./realQuestion/questionSummary.js";
-import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 let trackHTML = '';
 track.forEach(tracks => {
   trackHTML = `
@@ -46,10 +45,6 @@ track.forEach(tracks => {
   function trackExam() {
     let html = '';
     let examNum = 0
-    const today = dayjs()
-    const dateString = today.format('d MMMM, YYYY')
-    let dateTime = today.format('hh:mmA')
-    console.log(dateTime)
     track.forEach(track2 => {
     examNum++
     html +=`
@@ -73,7 +68,7 @@ track.forEach(tracks => {
         <div class="exam-info">
           <div>#Exam ${examNum}</div>
           <div>Total Score: ${track2.percentScores}%</div>
-          <div>Taken on: ${dateString} ${dateTime}</div>
+          <div>Taken on: ${track2.dateString} ${track2.dateTime}</div>
         </div>
         <a href="performance-details.html"><div class="arrow2"></div></a>
       </div>
