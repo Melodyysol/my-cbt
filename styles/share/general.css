@@ -84,3 +84,10 @@ body{
 .checked{
   background-color: #cd19cd;
 }
+.check{
+  background-color: #cd19cd;
+}
+
+a{
+  text-decoration: none;
+}

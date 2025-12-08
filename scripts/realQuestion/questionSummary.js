@@ -8,8 +8,12 @@ export let track = JSON.parse(localStorage.getItem('track')) || [];
 export function renderQuestionHTML() {
   const eachQuestion = document.querySelector('.subject')
   let filterQuestions = questions;
+  let varyQuestions = []
   let time = 60;
   let timeMinute = 19
+  let viewCorrection;
+  let getSelect;
+  let select = [];
 
   function mainQuestion() {
     let question = [];
@@ -30,8 +34,17 @@ export function renderQuestionHTML() {
 
       return matchSeletedQuest;
     })
+    let eachQuestNum = 0
+    for (let i = filterQuestions.length - 1; i > 0; i--) {
+      let randomNumber = Math.floor(Math.random() * (i + 1));
+      [filterQuestions[i], filterQuestions[randomNumber]] = [filterQuestions[randomNumber], filterQuestions[i]]
+      // [filterQuestions[i].questNum, filterQuestions[randomNumber].questNum] = [filterQuestions[randomNumber].questNum, filterQuestions[i].questNum]
+      varyQuestions = filterQuestions
+    }
+  
+    console.log(varyQuestions)
 
-    filterQuestions.forEach((quest) => {
+    varyQuestions.forEach((quest) => {
       const questId = quest.id;
       const matchingOption = matchOption(questId)
       let matchingQuestionOption;
@@ -40,6 +53,7 @@ export function renderQuestionHTML() {
           matchingQuestionOption = question;
         }
       })
+      eachQuestNum++
 
       const eng = quest.selectedQuestId === '1' ? 'English Lang.' : 'English Lang.'
       const math = quest.selectedQuestId === '2' ? 'Mathematics' : ''
@@ -65,23 +79,97 @@ export function renderQuestionHTML() {
       `
 
       generalQuestHTML += `
-      <div class="quest-cont js-quest-cont-${quest.id}">
-        <div class="quest-num">Question ${quest.questNum}</div>
-        <div class="instruction">
-          ${quest.question}
+        <div class="quest-cont js-quest-cont-${quest.id}">
+          <div class="quest-num">Question ${eachQuestNum}</div>
+          <div class="instruction">
+            ${quest.question}
+          </div>
+          <div class="opts">
+          ${mainOption(matchingOption)}
+          </div>
+          <div class="subj-del">
+            <div class="eng-small">(${matchingQuestionOption.name} - 2021)</div>
+          </div>
         </div>
-        <div class="opts">
-        ${mainOption(matchingOption)}
-        </div>
-        <div class="subj-del">
-          <div class="eng-small">(${matchingQuestionOption.name} - 2021)</div>
-        </div>
-      </div>
-      `;
+        `;
+
+
+
+      viewCorrection =  function correction() {
+        let matchingTrack;
+        track.forEach(tracks => {
+          matchingTrack = tracks
+        });
+        let matchQuest;
+        filterQuestions.forEach(ques => {
+          matchQuest = ques
+          console.log(matchQuest)
+        })
+        for (let i = 0; i < matchingTrack.selected.length; i++) {
+          let selects = select[i];
+          if(selects){
+            let label = document.querySelectorAll('.to-check')
+            label.forEach(labels => {
+              // labels.style.backgroundColor = 'red'
+              // console.log(labels)
+              if(labels.checked === true) {
+                console.log(labels)
+              }else{
+                console.log('This thing is false')
+              }
+            })
+          }
+          // if(selects) {
+          //   document.querySelector(`.to-check-${matchQuest.id}`).style.backgroundColor = 'red'
+          // }
+            // if(selects.value !== matchQuest.ans){
+            //   document.querySelector(`.to-check-${matchQuest.id}`).classList.add('checked')
+            // }else{
+            //   console.log('failed')
+            // }
+          
+        }
+      
+
+        // track.forEach((tracks) => {
+        //   tracks.selected.forEach(selects => {
+        //     // const getSelected = getSelect(selects)
+        //     // console.log(getSelected)
+
+        //     if(quest.ans.includes(selects)){
+        //       console.log(quest.ans)
+        //     }else{
+        //       console.log('failed')
+        //     }
+        //   })
+        // })
+        html= `
+          <div class="menu2-div">
+            <div>
+              <div>Question ${quest.questNum}</div>
+              <div>Time Used: <span><span class="js-minute">00</span> : <span class="js-seconds">00</span></span></div>
+            </div>
+            <a href="index.html"><div class="submit-div js-submit">Back to Home</div></a>
+          </div>
+          <div class="question-name">
+            <div class="eng">${eng}</div>
+            <div class="eng js-math-${quest.id}">${math}</div>
+            <div class="eng">${gen}</div>
+          </div>
+        `
+  
+        generalQuestHTML
+
+
+        document.querySelector('.js-submit-subject').innerHTML = html;
+        eachQuestion.innerHTML = generalQuestHTML
+
+        document.querySelector('.end-quiz-container').style.display = 'none'; 
+      }
     });
 
     document.querySelector('.js-submit-subject').innerHTML = html;
-    eachQuestion.innerHTML = generalQuestHTML 
+    eachQuestion.innerHTML = generalQuestHTML
     
   }
   mainQuestion()
@@ -118,19 +206,25 @@ export function renderQuestionHTML() {
     let matching;
     let totalAns = 0;
     let attempted = 0;
-    filterQuestions.forEach(quest => {
+    varyQuestions.forEach(quest => {
       totalQuest = quest.questNum
       const questId = quest.id
       const matchingOption = matchOption(questId)
       if(quest.id === matchingOption.optionId) {
         matching = matchingOption
       }
-      console.log(matching)
-      console.log(quest)
 
       const selected = document.querySelector(`input[name="radio-${quest.id}"]:checked`)
-      console.log(selected)
-
+      select.push(selected)
+      // getSelect =  function selectFun(selects) {
+      //   let selected = document.querySelector(`input[name="radio-${quest.id}"]:checked`)
+      //   console.log(selected)
+      //   let getSelected
+      //   if(selects === selected){
+      //     getSelected = selected
+      //   }
+      //   return getSelected
+      // }
       if(selected) {
         attempted++
         const answer = selected.value;
@@ -144,7 +238,6 @@ export function renderQuestionHTML() {
         }
       }
     })
-    console.log(totalQuest)
     const percentScore = ((totalAns / totalQuest) * 100).toFixed(2)
     const comment = percentScore < 50 ? 'Your Performance is low' : 'You Performed Brilliantly'
     const attemptQuest = attempted > 1 ? 'Questions' : 'Question'
@@ -168,7 +261,8 @@ export function renderQuestionHTML() {
       avgScores: totalAns,
       timeSecs: time,
       timeMins: timeMinute,
-      percentScores: percentScore
+      percentScores: percentScore,
+      selected: select
     })
     saveToStorage()
     document.querySelector('.end-quiz-container').style.display = 'flex'
@@ -187,18 +281,18 @@ export function renderQuestionHTML() {
   }
 
   document.addEventListener("change", (e) => {
-    console.log(e);
+    // console.log(e);
     if (e.target && e.target.classList.contains("radio")) {
       const selectedRadio = e.target;
 
       const selectedValue = selectedRadio.value;
-      console.log(selectedValue);
+      // console.log(selectedValue);
       const nameAttr = selectedRadio.name;
       const idPart = nameAttr.replace("radio-", "");
-      console.log(idPart);
+      // console.log(idPart);
 
       const allRadios = document.getElementsByName(nameAttr);
-      console.log(allRadios);
+      // console.log(allRadios);
       allRadios.forEach((radio) => {
         if (radio !== selectedRadio) {
           radio.checked = false;
@@ -220,64 +314,5 @@ export function renderQuestionHTML() {
 
   function saveToStorage() {
     return localStorage.setItem('track', JSON.stringify(track))
-  }
-
-  function viewCorrection() {
-    let correctionHTML = ''
-    let html = ''
-    const url = new URL(window.location.href)
-    const questionId1 = url.searchParams.get('questionId1')
-    const questionId2 = url.searchParams.get('questionId2')
-    const questionId3 = url.searchParams.get('questionId3')
-    filterQuestions.forEach(quest => {
-      const questId = quest.id;
-      const matchingOption = matchOption(questId)
-      let matchingQuestionOption;
-      questionType.forEach(question => {
-        if(matchingOption.questionTypeId === question.questionTypeId){
-          matchingQuestionOption = question;
-        }
-      })
-
-      const eng = quest.selectedQuestId === '1' ? 'English Lang.' : 'English Lang.'
-      const math = quest.selectedQuestId === '2' ? 'Mathematics' : ''
-      const gen = quest.selectedQuestId === '3' ? 'Gen. Paper' : ''
-      
-
-
-      document.querySelector('.js-examine-1').innerHTML = matchingQuestionOption.name
-      html= `
-        <div class="menu2-div">
-          <div>
-            <div>Question ${quest.questNum}</div>
-            <div>Time left: <span><span class="js-minute">20</span> : <span class="js-seconds">00</span></span></div>
-          </div>
-          <div class="submit-div js-submit">Submit</div>
-        </div>
-        <div class="question-name">
-          <div class="eng">${eng}</div>
-          <div class="eng js-math-${quest.id}">${math}</div>
-          <div class="eng">${gen}</div>
-        </div>
-      `
-
-      correctionHTML += `
-      <div class="quest-cont js-quest-cont-${quest.id}">
-        <div class="quest-num">Question ${quest.questNum}</div>
-        <div class="instruction">
-          ${quest.question}
-        </div>
-        <div class="opts">
-        ${mainOption(matchingOption)}
-        </div>
-        <div class="subj-del">
-          <div class="eng-small">(${matchingQuestionOption.name} - 2021)</div>
-        </div>
-      </div>
-      `;
-    })
-    document.querySelector('.end-quiz-container').style.display = 'none'
-    document.querySelector('.js-submit-subject').innerHTML = html;
-    eachQuestion.innerHTML = correctionHTML 
   }
 }
