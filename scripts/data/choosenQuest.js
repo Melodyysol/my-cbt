@@ -1,41 +1,42 @@
-import { questions } from "./infomation.js";
+// import { questions } from "./infomation.js";
+// import { calculator } from "./calculator.js";
 
 
-let filterQuestions = questions;
-filterQuestions = questions.filter(quest => {
-  let mat;
-  if(quest.selectedQuestId === '1') {
-    mat = quest
-  }
+// let filterQuestions = questions;
+// filterQuestions = questions.filter(quest => {
+//   let mat;
+//   if(quest.selectedQuestId === '1') {
+//     mat = quest
+//   }
 
-  return mat
-})
-console.log(filterQuestions)
- let varyQuestions = []
+//   return mat
+// })
+// console.log(filterQuestions)
+//  let varyQuestions = []
 
-for (let i = 0; i < filterQuestions.length; i++) {
-  let randomNumber = Math.floor(Math.random() * filterQuestions.length + 1);
-  varyQuestions.push(filterQuestions[randomNumber])
-}
-console.log(varyQuestions)
-varyQuestions.forEach(quest => {
+// for (let i = 0; i < filterQuestions.length; i++) {
+//   let randomNumber = Math.floor(Math.random() * filterQuestions.length + 1);
+//   varyQuestions.push(filterQuestions[randomNumber])
+// }
+// console.log(varyQuestions)
+// varyQuestions.forEach(quest => {
   
-})
+// })
 
 
 
-let time = 60;
-setInterval(() => {
-  if(time <= 60 && time > 0) {
-    time--
-  }else if(time <= 0){
-    time = 59
-  }
-}, 1000)
+// let time = 60;
+// setInterval(() => {
+//   if(time <= 60 && time > 0) {
+//     time--
+//   }else if(time <= 0){
+//     time = 59
+//   }
+// }, 1000)
 
-document.querySelector('.js-target').addEventListener('click', () => {
-  document.querySelector('.js-button').classList.add('checked')
-})
+// document.querySelector('.js-target').addEventListener('click', () => {
+//   document.querySelector('.js-button').classList.add('checked')
+// })
 /*
 let isCorrect = true
 let randomNumber = Math.floor(Math.random() * 6 + 1)
@@ -56,7 +57,7 @@ console.log(`You attemted it ${attempt} times`)
 */
 
 
-function getRandomPassword(length, isLowerCase, isUpperCase, isNumber, isSpecialSymbol) {
+export function getRandomPassword(length, isLowerCase, isUpperCase, isNumber, isSpecialSymbol) {
   const lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz';
   const upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numberChars = '0123456789'
@@ -74,13 +75,13 @@ function getRandomPassword(length, isLowerCase, isUpperCase, isNumber, isSpecial
     let randomIdex = Math.floor(Math.random() * allowChars.length + 1)
     password += allowChars[randomIdex]
   }
-  console.log(password)
+  return password
 }
-let passwordLength = 12
-let isLowerCase = true;
+let passwordLength = 10
+let isLowerCase = false;
 let isUpperCase = true;
 let isNumber = true;
-let isSpecialSymbol = true;
+let isSpecialSymbol = false;
 getRandomPassword(passwordLength, isLowerCase, isUpperCase, isNumber, isSpecialSymbol)
 
 
@@ -120,3 +121,4 @@ class Circle{
 const circle = new Circle(7)
 
 console.log(circle.perimeter)
+// calculator()

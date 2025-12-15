@@ -3,6 +3,8 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js'
 import {  matchOption } from "../data/option.js";
 import { questionType } from "../data/questionType.js";
 import { questions } from "../data/infomation.js";
+import { calculator } from "../data/calculator.js";
+import { getRandomPassword } from "../data/choosenQuest.js";
 export let track = JSON.parse(localStorage.getItem('track')) || [];
 
 
@@ -15,6 +17,7 @@ export function renderQuestionHTML() {
   let viewCorrection;
   let getSelect;
   let select = [];
+  let eachQuestNum = 0
 
   function mainQuestion() {
     let question = [];
@@ -35,15 +38,33 @@ export function renderQuestionHTML() {
 
       return matchSeletedQuest;
     })
-    let eachQuestNum = 0
     for (let i = filterQuestions.length - 1; i > 0; i--) {
       let randomNumber = Math.floor(Math.random() * (i + 1));
       [filterQuestions[i], filterQuestions[randomNumber]] = [filterQuestions[randomNumber], filterQuestions[i]]
       // [filterQuestions[i].questNum, filterQuestions[randomNumber].questNum] = [filterQuestions[randomNumber].questNum, filterQuestions[i].questNum]
       varyQuestions = filterQuestions
     }
-  
-    console.log(varyQuestions)
+
+    // Collect all unique subjects
+    const subjectsMap = new Map();
+    const subjectNames = {
+      '1': 'English Lang.',
+      '2': 'Mathematics',
+      '3': 'Gen. Paper'
+    };
+
+    varyQuestions.forEach((quest) => {
+      const subjectId = quest.selectedQuestId;
+      if (!subjectsMap.has(subjectId)) {
+        subjectsMap.set(subjectId, subjectNames[subjectId] || subjectId);
+      }
+    });
+
+    // Build subject display HTML
+    let subjectsHTML = '';
+    subjectsMap.forEach((name) => {
+      subjectsHTML += `<div class="eng">${name}</div>`;
+    });
 
     varyQuestions.forEach((quest) => {
       const questId = quest.id;
@@ -56,26 +77,19 @@ export function renderQuestionHTML() {
       })
       eachQuestNum++
 
-      const eng = quest.selectedQuestId === '1' ? 'English Lang.' : 'English Lang.'
-      const math = quest.selectedQuestId === '2' ? 'Mathematics' : ''
-      const gen = quest.selectedQuestId === '3' ? 'Gen. Paper' : ''
-      
-
-
-      document.querySelector('.js-examine-1').innerHTML = matchingQuestionOption.name
+      document.querySelector('.js-examine-1').innerHTML = subjectsHTML;
+      document.querySelector('.js-examine-1').style.display = 'flex';
 
       html= `
         <div class="menu2-div">
           <div>
-            <div>Question ${quest.questNum}</div>
+            <div>Questions ${eachQuestNum}</div>
             <div>Time left: <span><span class="js-minute">20</span> : <span class="js-seconds">00</span></span></div>
           </div>
           <div class="submit-div js-submit">Submit</div>
         </div>
         <div class="question-name">
-          <div class="eng">${eng}</div>
-          <div class="eng js-math-${quest.id}">${math}</div>
-          <div class="eng">${gen}</div>
+          ${subjectsHTML}
         </div>
       `
 
@@ -96,77 +110,7 @@ export function renderQuestionHTML() {
 
 
 
-      viewCorrection =  function correction() {
-        let matchingTrack;
-        track.forEach(tracks => {
-          matchingTrack = tracks
-        });
-        let matchQuest;
-        filterQuestions.forEach(ques => {
-          matchQuest = ques
-          console.log(matchQuest)
-        })
-        for (let i = 0; i < matchingTrack.selected.length; i++) {
-          let selects = select[i];
-          if(selects){
-            let label = document.querySelectorAll('.to-check')
-            label.forEach(labels => {
-              // labels.style.backgroundColor = 'red'
-              // console.log(labels)
-              if(labels.checked === true) {
-                console.log(labels)
-              }else{
-                console.log('This thing is false')
-              }
-            })
-          }
-          // if(selects) {
-          //   document.querySelector(`.to-check-${matchQuest.id}`).style.backgroundColor = 'red'
-          // }
-            // if(selects.value !== matchQuest.ans){
-            //   document.querySelector(`.to-check-${matchQuest.id}`).classList.add('checked')
-            // }else{
-            //   console.log('failed')
-            // }
-          
-        }
-      
-
-        // track.forEach((tracks) => {
-        //   tracks.selected.forEach(selects => {
-        //     // const getSelected = getSelect(selects)
-        //     // console.log(getSelected)
-
-        //     if(quest.ans.includes(selects)){
-        //       console.log(quest.ans)
-        //     }else{
-        //       console.log('failed')
-        //     }
-        //   })
-        // })
-        html= `
-          <div class="menu2-div">
-            <div>
-              <div>Question ${quest.questNum}</div>
-              <div>Time Used: <span><span class="js-minute">00</span> : <span class="js-seconds">00</span></span></div>
-            </div>
-            <a href="index.html"><div class="submit-div js-submit">Back to Home</div></a>
-          </div>
-          <div class="question-name">
-            <div class="eng">${eng}</div>
-            <div class="eng js-math-${quest.id}">${math}</div>
-            <div class="eng">${gen}</div>
-          </div>
-        `
-  
-        generalQuestHTML
-
-
-        document.querySelector('.js-submit-subject').innerHTML = html;
-        eachQuestion.innerHTML = generalQuestHTML
-
-        document.querySelector('.end-quiz-container').style.display = 'none'; 
-      }
+      // Placeholder - viewCorrection will be defined after endQuiz
     });
 
     document.querySelector('.js-submit-subject').innerHTML = html;
@@ -214,9 +158,8 @@ export function renderQuestionHTML() {
     const today = dayjs()
     const dateString = today.format('d MMMM, YYYY')
     let dateTime = today.format('hh:mmA')
-    console.log(dateTime)
     varyQuestions.forEach(quest => {
-      totalQuest = quest.questNum
+      totalQuest = eachQuestNum
       const questId = quest.id
       const matchingOption = matchOption(questId)
       if(quest.id === matchingOption.optionId) {
@@ -266,7 +209,7 @@ export function renderQuestionHTML() {
     `
 
     track.push({
-      id: '1',
+      id: getRandomPassword(12, false, true, true, false),
       avgScores: totalAns,
       timeSecs: time,
       timeMins: timeMinute,
@@ -287,8 +230,106 @@ export function renderQuestionHTML() {
     })
 
     document.querySelector('.js-view').addEventListener('click', () => {
-      viewCorrection()
+      showCorrections(varyQuestions, select)
     })
+  }
+
+  // Function to display corrections for all questions
+  function showCorrections(questions, userSelections) {
+    let correctionsHTML = `
+      <div class="corrections-container">
+        <div class="menu2-div">
+          <div>
+            <div>Review Answers</div>
+            <div></div>
+          </div>
+          <a href="index.html"><div class="submit-div js-submit">Back to Home</div></a>
+        </div>
+        <div class="question-name">
+          <div class="eng">Review of your Answers</div>
+        </div>
+        <div class="corrections-content">
+    `;
+
+    questions.forEach((quest, index) => {
+      const userSelection = userSelections[index];
+      const userAnswer = userSelection ? userSelection.value : 'Not Attempted';
+      const isCorrect = userAnswer === quest.ans;
+      const matchingOption = matchOption(quest.id);
+      
+      // Build options display with visual indicators
+      let optionsHTML = '';
+      const options = ['A', 'B', 'C', 'D'];
+      options.forEach(opt => {
+        const optionKey = `option${opt}`;
+        const optionValue = matchingOption[optionKey] || '';
+        let optionClass = '';
+        
+        if (opt === quest.ans) {
+          optionClass = 'correct-answer'; // Correct answer
+        }
+        if (opt === userAnswer && !isCorrect) {
+          optionClass = 'wrong-answer'; // User's wrong answer
+        }
+        if (opt === userAnswer && isCorrect) {
+          optionClass = 'user-correct-answer'; // User's correct answer
+        }
+        
+        optionsHTML += `
+          <div class="correction-option ${optionClass}">
+            <strong>${opt}:</strong> ${optionValue}
+          </div>
+        `;
+      });
+
+      correctionsHTML += `
+        <div class="correction-question ${isCorrect ? 'correct' : 'incorrect'}">
+          <div class="correction-header">
+            <span class="question-status">${isCorrect ? '✓ Correct' : '✗ Incorrect'}</span>
+            <span class="question-title">Question ${index + 1}</span>
+          </div>
+          
+          <div class="correction-body">
+            <div class="question-text"><strong>Question:</strong> ${quest.question}</div>
+            
+            <div class="user-answer">
+              <strong>Your Answer:</strong> ${userAnswer} ${userAnswer !== 'Not Attempted' ? `(${matchingOption[`option${userAnswer}`] || ''})` : ''}
+            </div>
+            
+            <div class="correct-answer-section">
+              <strong>Correct Answer:</strong> ${quest.ans} (${matchingOption[`option${quest.ans}`] || ''})
+            </div>
+            
+            <div class="options-list">
+              <strong>All Options:</strong>
+              ${optionsHTML}
+            </div>
+            
+            ${quest.correction ? `
+              <div class="explanation">
+                <strong>Explanation:</strong>
+                <p>${quest.correction}</p>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    });
+
+    correctionsHTML += `
+        </div>
+      </div>
+    `;
+
+    // Display corrections
+    document.querySelector('.js-submit-subject').innerHTML = '';
+    eachQuestion.innerHTML = correctionsHTML;
+    document.querySelector('.end-quiz-container').style.display = 'none';
+
+    // Add navigation
+    document.querySelector('.js-submit').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
   }
 
   document.addEventListener("change", (e) => {
@@ -326,4 +367,8 @@ export function renderQuestionHTML() {
   function saveToStorage() {
     return localStorage.setItem('track', JSON.stringify(track))
   }
+  document.querySelector('.js-calculator').addEventListener('click', () => {
+    document.querySelector('.calculator-container-real').style.display = 'flex';
+    calculator()
+  })
 }

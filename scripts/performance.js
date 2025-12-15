@@ -48,7 +48,8 @@ track.forEach(tracks => {
     track.forEach(track2 => {
     examNum++
     html +=`
-      <div class="exam-cont">
+      <div class="exam-cont js-exam-cont"
+        data-track-id="${track2.id}">
         <div class="box">
           <div class="mini-box">
             <div class="first-box"></div>
@@ -70,13 +71,23 @@ track.forEach(tracks => {
           <div>Total Score: ${track2.percentScores}%</div>
           <div>Taken on: ${track2.dateString} ${track2.dateTime}</div>
         </div>
-        <a href="performance-details.html"><div class="arrow2"></div></a>
+        <a><div class="arrow2"></div></a>
       </div>
     `
-  })
+    })
     return html;
   }
   
 });
 
 document.querySelector('.js-track-container').innerHTML = trackHTML
+
+document.querySelectorAll('.js-exam-cont').forEach(examCount => {
+  examCount.addEventListener('click', () => {
+    let trackId = examCount.dataset.trackId
+    console.log(trackId)
+    window.location.href = `performance-details.html?trackId=${trackId}`
+  })
+})
+
+console.log(track)
