@@ -2,20 +2,24 @@
 
   pageHTML = `
     <div class="prepare">
-      <div class="name">Hi, Name</div>
+      <div class="name">Hi, Abdulwaris</div>
       <div>Ready to learn and study today?</div>
     </div>
-    <marquee behavior="scroll" direction="left">
-      <div class="information">
-        <div class="level">
-          <div class="myinfo">Introducing the new</div>
-          <div class="aty">ATY APP</div>
-          <div class="hundred">100 Level</div>
-          <div class="semester">FIRST SEMESTER</div>
+    <!--<marquee behavior="scroll" direction="left">-->
+    <div class="js-sliders">
+      <div class="slider js-slider">
+        <div class="information">
+          <div class="level">
+            <div class="myinfo">Be with and never lose</div>
+            <div class="aty">ATY APP</div>
+            <div class="hundred">100 Level</div>
+            <div class="semester">SECOND SEMESTER</div>
+          </div>
+          <img class="bag" src="images/backpack.jpg" alt="Atere">
         </div>
-        <img class="bag" src="/images/neuracoin.png" alt="Atere">
       </div>
-    </marquee>
+    </div>
+    <!--</marquee>-->
     <div class="exercise">
       <a class="exercise-link" href="exam.html">
         <div class="cell-1 cell">
@@ -99,5 +103,47 @@
       </a>
     </div>
   `
+    let html1 = `
+      <div class="slider js-slider">
+        <div class="information">
+          <div class="level">
+            <div class="myinfo">Introducing the new</div>
+            <div class="aty">ATY APP</div>
+            <div class="hundred">100 Level</div>
+            <div class="semester">FIRST SEMESTER</div>
+          </div>
+          <img class="bag" src="images/neuracoin.png" alt="Atere">
+        </div>
+      </div>
+    `
+
+    let html2 = `
+      <div class="slider js-slider">
+        <div class="information">
+          <div class="level">
+            <div class="myinfo">Be with us and never lose</div>
+            <div class="aty">ATY APP</div>
+            <div class="hundred">100 Level</div>
+            <div class="semester">SECOND SEMESTER</div>
+          </div>
+          <img class="bag" src="images/backpack.jpg" alt="Atere">
+        </div>
+      </div>
+    `
 
   document.querySelector('.js-container').innerHTML = pageHTML;
+
+  let array = [html1, html2]
+  let slide = 0;
+  function slideOver() {
+    setInterval(() => {
+      if(slide >= array.length) {
+        slide = 0
+      }
+      slide++
+      document.querySelector('.js-sliders').innerHTML = array[slide-1]
+      document.querySelector('.js-slider').classList.add('display-slides')
+    }, 3000);
+
+  }
+  slideOver()

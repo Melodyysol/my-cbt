@@ -234,3 +234,17 @@
   .home-link{
     text-decoration: none;
   }
+
+ 
+  .display-slides{
+    display: initial;
+    animation: slide 1.5s alternate linear infinite;
+  }
+
+  @keyframes slide {
+    from{
+      opacity: .5;
+    }to{
+     opacity: 1;
+    }
+  }
