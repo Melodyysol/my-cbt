@@ -79,4 +79,25 @@ export function calculator() {
       document.querySelector('.cancle').addEventListener('click', () => {
         document.querySelector('.calculator-container-real').style.display = 'none'
       })
+      document.body.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape') {
+          document.querySelector('.calculator-container-real').style.display = 'none'
+        }
+      })
+      // document.body.addEventListener('click', (e) => {
+      //   if(e.target.className !== 'calculator-container' &&
+      //    e.target.className !== 'calculator-input' &&
+      //    e.target.className !== 'calculator-signs' &&
+      //    e.target.className !== 'all-signs js-signs' &&
+      //    e.target.classList !== 'js-calculator' &&
+      //    e.target.className !== 'js-input'
+      //   ){
+      //     document.querySelector('.calculator-container-real').style.display = 'none'
+      //   }
+      // })
+      document.body.addEventListener('click', (e) => {
+        if(e.target.classList.contains('calculator-container-real')){
+          document.querySelector('.calculator-container-real').style.display = 'none'
+        }
+      }) 
 }
