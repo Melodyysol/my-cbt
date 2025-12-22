@@ -156,7 +156,7 @@ export function renderQuestionHTML() {
     // const dateTime = `${date.getHours()}` + '-' + `${date.getMinutes()}`
 
     const today = dayjs()
-    const dateString = today.format('d MMMM, YYYY')
+    const dateString = today.format('D MMMM, YYYY')
     let dateTime = today.format('hh:mmA')
     varyQuestions.forEach(quest => {
       totalQuest = eachQuestNum
