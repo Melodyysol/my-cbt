@@ -238,13 +238,31 @@
  
   .display-slides{
     display: initial;
-    animation: slide 1.5s alternate linear infinite;
+    animation: slideIn 1s ease-in-out;
   }
 
-  @keyframes slide {
+  .fade-out {
+    animation: fadeOut 0.5s ease-in-out;
+  }
+
+  @keyframes slideIn {
     from{
-      opacity: .5;
-    }to{
-     opacity: 1;
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to{
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeOut {
+    from{
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to{
+      opacity: 0;
+      transform: translateX(50px);
     }
   }

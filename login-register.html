@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Or Register</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link rel="stylesheet" href="styles/login-register.css">
+</head>
+<body>
+  <div class="wrapper js-wrapper">
+    <span class="rotate-bg"></span>
+    <span class="rotate-bg2"></span>
+
+    <div class="form-box login js-login">
+      <h2 class="title animation" style="--i:0; --j:21">Login</h2>
+      <form action="#">
+        <div class="input-box animation" style="--i:1; --j:22">
+          <input type="email" required class="js-email-login" name="email">
+          <label for="">Email</label>
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <div class="input-box animation" style="--i:2; --j:23">
+          <input type="password" class="js-password-login" required name="password">
+          <label for="">Password</label>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <button type="submit" class="btn animation js-sub-login" style="--i:3; --j:24;">Login</button>
+        <div class="linkTxt animation" style="--i:5; --j:25">
+          <p>Don't have an account? 
+            <a href="#" class="register-link js-register-link">
+              Sign Up
+            </a>
+          </p>
+          <p class="js-error-caught"></p>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="info-text login">
+      <h2 class="animation" style="--i:0; --j:20">Welcome Back!</h2>
+      <p class="animation" style="--i:1; --j:21">Lorem ipsum dolor sit amet 
+        consectetur adipisicing elit. Reprehenderit quod quas esse facilis, 
+        aspernatur earum fugit? Reiciendis nam aperiam architecto labore delectus, 
+        perferendis molestiae velit similique atque maxime exercitationem adipisci!
+      </p>
+    </div>
+
+    <div class="form-box register js-register" style="opacity: 0;">
+      <h2 class="title animation" style="--i:17; --j:0">Sign Up</h2>
+      <form action="#">
+        <div class="input-box animation" style="--i:18; --j:1">
+          <input type="text" class="js-full-name" required name="name">
+          <label for="">Full name</label>
+          <i class="bx bxs-user"></i>
+        </div>
+
+        <div class="input-box animation" style="--i:19; --j:2">
+          <input type="email" class="js-email-register" required name="email">
+          <label for="">Email</label>
+          <i class="bx bxs-envelope"></i>
+        </div>
+
+        <div class="input-box js-input-box animation" style="--i:20; --j:3">
+          <input type="password" required class="js-password-register" name="password">
+          <label for="">Password</label>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <div class="input-box animation" style="--i:21; --j:4">
+          <input type="password" required name="confirm-password">
+          <label for="">Confirm Password</label>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+
+        <button type="submit" class="btn animation js-sub-reg" style="--i:22; --j:5">Sign Up</button>
+        <div class="linkTxt animation" style="--i:22; --j:5">
+          <p>Already have an account? <a href="#" class="login-link js-login-link">Login</a></p>
+          <p class="js-used-mail"></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="info-text register">
+      <h2 class="animation" style="--i:17; --j:0">Welcome Back!</h2>
+      <p class="animation" style="--i:18; --j:1">Lorem ipsum dolor sit amet 
+        consectetur adipisicing elit. Reprehenderit quod quas esse facilis, 
+        aspernatur earum fugit? Reiciendis nam aperiam architecto labore delectus, 
+        perferendis molestiae velit similique atque maxime exercitationem adipisci!
+      </p>
+    </div>
+  </div>
+
+  <script src="scripts/login-register.js" type="module"></script>
+  <script src="scripts/unilag-class.js"></script>
+</body>
+</html>
