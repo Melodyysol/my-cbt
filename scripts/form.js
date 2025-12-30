@@ -37,9 +37,9 @@ document.getElementById('login-form').addEventListener('submit', (e) => {
 
   const user = users.find(u => u.email === email && u.password === password);
   if (user) {
-    // Successful login, redirect to index.html
+    // Successful login, redirect to unilag.html
     localStorage.setItem('currentUser', JSON.stringify(user));
-    window.location.href = 'index.html';
+    window.location.href = 'unilag.html';
   } else {
     errorElement.textContent = 'Invalid email or password';
   }
@@ -72,5 +72,5 @@ document.getElementById('register-form').addEventListener('submit', (e) => {
 
   // Auto login after registration
   localStorage.setItem('currentUser', JSON.stringify(newUser));
-  window.location.href = 'index.html';
+  window.location.href = 'unilag.html';
 });

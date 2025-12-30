@@ -30,7 +30,7 @@ question.push(questionId1, questionId2, questionId3)
 let questionOptHTML = ''
 questionOptHTML = `
   <div class="top-section">
-    <a href="index.html" class="arrow"></a>
+    <a href="unilag.html" class="arrow"></a>
     <div class="examine">Past Question Options</div>
     <div class="select1">Select the options below to continue</div>
   </div>

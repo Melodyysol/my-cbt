@@ -107,7 +107,7 @@ function loginUser() {
     let emailId = userExists.email;
     let passwordId = userExists.password;
 
-    window.location.href = `index.html?fullname=${name}&&email=${emailId}&&password=${passwordId}`
+    window.location.href = `unilag.html?fullname=${name}&&email=${emailId}&&password=${passwordId}`
     alert(`${name} You've logged in`)
     return;
   }else{

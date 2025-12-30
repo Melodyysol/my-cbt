@@ -226,7 +226,7 @@ export function renderQuestionHTML() {
       window.location.href = 'exam.html'
     })
     document.querySelector('.js-close-back').addEventListener('click', () => {
-      window.location.href = 'index.html'
+      window.location.href = 'unilag.html'
     })
 
     document.querySelector('.js-view').addEventListener('click', () => {
@@ -243,7 +243,7 @@ export function renderQuestionHTML() {
             <div>Review Answers</div>
             <div></div>
           </div>
-          <a href="index.html"><div class="submit-div js-submit">Back to Home</div></a>
+          <a href="unilag.html"><div class="submit-div js-submit">Back to Home</div></a>
         </div>
         <div class="question-name">
           <div class="eng">Review of your Answers</div>
@@ -328,7 +328,7 @@ export function renderQuestionHTML() {
 
     // Add navigation
     document.querySelector('.js-submit').addEventListener('click', () => {
-      window.location.href = 'index.html';
+      window.location.href = 'unilag.html';
     });
   }
 
