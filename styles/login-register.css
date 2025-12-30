@@ -295,7 +295,7 @@ form .linkTxt{
 }
 
 @media (max-width: 760px){
-  .wrapper .info-text{
+  /* .wrapper .info-text{
     justify-content: center;
     align-items: flex-start;
     padding: 10px;
@@ -337,5 +337,17 @@ form .linkTxt{
     transform-origin: bottom left;
     transition: 1.5s ease;
     transition-delay: 0.5s;
+  } */
+
+  .wrapper .info-text{
+    display: none;
   }
+  .wrapper .rotate-bg2, .wrapper .rotate-bg{
+    display: none;
+  }
+
+  .wrapper .form-box{
+    width: 100%;
+  }
+
 }
