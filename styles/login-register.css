@@ -293,3 +293,49 @@ form .linkTxt{
   right:0;
   top: 15px;
 }
+
+@media (max-width: 760px){
+  .wrapper .info-text{
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .wrapper .info-text.login{
+    padding: 0 10px;
+  }
+
+  .wrapper .info-text h2{
+    font-size: 20px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin: -13em 0 10px;
+  }
+  .wrapper .info-text p{
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 15px;
+  }
+
+    .wrapper .info-text.register{
+     padding: 0 10px;
+    }
+
+  .wrapper .rotate-bg{
+    width: 850px;
+    height: 450px;
+    background: var(--black);
+    transform: rotate(10deg) skewY(40deg);
+  }
+
+  .wrapper .rotate-bg2{
+    left: 250px;
+    width: 850px;
+    height: 1550px;
+    background: var(--white);
+    transform: rotate(0) skewY(0);
+    transform-origin: bottom left;
+    transition: 1.5s ease;
+    transition-delay: 0.5s;
+  }
+}
