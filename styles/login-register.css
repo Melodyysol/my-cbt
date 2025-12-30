@@ -339,15 +339,16 @@ form .linkTxt{
     transition-delay: 0.5s;
   } */
 
-  .wrapper .info-text{
+  .wrapper .rotate-bg2, .wrapper .rotate-bg, .wrapper .info-text{
     display: none;
   }
-  .wrapper .rotate-bg2, .wrapper .rotate-bg{
-    display: none;
-  }
-
   .wrapper .form-box{
     width: 100%;
+    padding: 0 40px;
+  }
+
+  .wrapper .form-box.login{
+    position: relative;
   }
 
 }
